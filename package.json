@@ -1,0 +1,14 @@
+{
+  "name": "node-file",
+  "version": "1.0.0",
+  "description": "first exercise",
+  "main": "step1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chris Richter",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.2.1"
+  }
+}
