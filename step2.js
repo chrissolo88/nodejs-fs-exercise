@@ -1,8 +1,16 @@
 const fs = require('fs');
+const axios = require('axios')
+const argv = process.argv;
+const arg = argv[2]
+try {
+    const url = new URL(arg);
+    webCat()
+} catch (_) {
+    cat()
+}
 
 function cat(){
-    const argv = process.argv;
-    fs.readFile(argv[2], 'utf8', (err,data) => {
+    fs.readFile(arg, 'utf8', (err,data) => {
         if(err){
             console.log("ERROR",err);
             process.kill(1)
@@ -11,4 +19,11 @@ function cat(){
     })
 }
 
-cat()
+async function webCat(){
+    try{
+        res = await axios.get(arg)
+        console.log(res.data)
+    }catch(err){
+        console.log('ERROR',err)
+    }
+}
